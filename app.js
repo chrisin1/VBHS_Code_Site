@@ -1,3 +1,5 @@
+require('./config/config.js');
+
 const express         = require('express');
 const app             = express();
 const bodyParser      = require('body-parser');
@@ -9,6 +11,8 @@ hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs');
 
 const port = process.env.PORT;
+
+app.use(express.static('./public'));
 
 Controller(app);
 
