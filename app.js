@@ -10,6 +10,10 @@ const fs              = require('fs');
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs');
 
+hbs.registerHelper('getCurrentYear', () => {
+  return new Date().getFullYear()
+});
+
 const port = process.env.PORT;
 
 app.use(express.static('./public'));
